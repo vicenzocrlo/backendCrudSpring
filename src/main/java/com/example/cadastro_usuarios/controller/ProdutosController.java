@@ -12,43 +12,43 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.cadastro_usuarios.model.Usuario;
-import com.example.cadastro_usuarios.service.UsuarioService;
+import com.example.cadastro_usuarios.model.Produtos;
+import com.example.cadastro_usuarios.service.ProdutosService;
 
 @RestController
-@RequestMapping("/usuarios")
-public class UsuarioController {
+@RequestMapping("/produtos")
+public class ProdutosController {
 
     @Autowired
-    private UsuarioService usuarioService;
+    private ProdutosService produtosService;
 
     // GET - lista todos
     @GetMapping
-    public List<Usuario> listarTodos() {
-        return usuarioService.listarTodos();
+    public List<Produtos> listarTodos() {
+        return produtosService.listarTodos();
     }
 
     // GET por ID
     @GetMapping("/{id}")
-    public Usuario buscar(@PathVariable Long id) {
-        return usuarioService.buscarPorId(id);
+    public Produtos buscar(@PathVariable Long id) {
+        return produtosService.buscarPorId(id);
     }
 
     // POST - cria
     @PostMapping
-    public Usuario criar(@RequestBody Usuario usuario) {
-        return usuarioService.salvar(usuario);
+    public Produtos criar(@RequestBody Produtos produtos) {
+        return produtosService.salvar(produtos);
     }
 
     // PUT - atualiza
     @PutMapping("/{id}")
-    public Usuario atualizar(@PathVariable Long id, @RequestBody Usuario usuario) {
-        return usuarioService.atualizar(id, usuario);
+    public Produtos atualizar(@PathVariable Long id, @RequestBody Produtos produtos) {
+        return produtosService.atualizar(id, produtos);
     }
 
     // DELETE - exclui
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
-        usuarioService.excluir(id);
+        produtosService.excluir(id);
     }
 }

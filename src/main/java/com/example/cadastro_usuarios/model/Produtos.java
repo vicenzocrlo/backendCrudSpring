@@ -4,16 +4,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.math.BigDecimal;
 
 @Entity
-public class Usuario {
+public class Produtos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String nome;
-    private String email;
+    private String categoria;
+    private BigDecimal valor;
+    private int quantidade;
 
     // Getters e Setters
     public Long getId() {
@@ -32,11 +35,27 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
+
+     public BigDecimal getValor() {
+        return valor;
+    }
+
+    public void setValor(BigDecimal valor) {
+        this.valor = valor;
+    }
+ public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
 }
